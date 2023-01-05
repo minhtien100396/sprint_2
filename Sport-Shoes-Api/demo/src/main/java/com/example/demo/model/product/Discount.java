@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class DisCount {
+public class Discount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -26,7 +26,7 @@ public class DisCount {
     @OneToMany(mappedBy = "disCount")
     private Set<Product> products;
 
-    public DisCount() {
+    public Discount() {
     }
 
     public int getId() {

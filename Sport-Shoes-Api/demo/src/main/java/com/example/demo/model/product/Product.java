@@ -19,7 +19,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "discount_id", referencedColumnName = "id")
-    private DisCount disCount;
+    private Discount disCount;
 
     @ManyToOne
     @JoinColumn(name = "brand_id", referencedColumnName = "id")
@@ -79,11 +79,11 @@ public class Product {
         this.deleteStatus = deleteStatus;
     }
 
-    public DisCount getDisCount() {
+    public Discount getDisCount() {
         return disCount;
     }
 
-    public void setDisCount(DisCount disCount) {
+    public void setDisCount(Discount disCount) {
         this.disCount = disCount;
     }
 

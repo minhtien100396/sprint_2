@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { UserCreateComponent } from './user/user-create/user-create.component';
-import { LoginComponent } from './security/login/login.component';
-import { HomeComponent } from './home/home.component';
-import { ProductDetailComponent } from './product/product-detail/product-detail.component';
-import { PaymentCartComponent } from './payment/payment-cart/payment-cart.component';
+import { HeaderComponent } from './component/header/header.component';
+import { UserCreateComponent } from './component/user/user-create/user-create.component';
+import { LoginComponent } from './component/security/login/login.component';
+import { HomeComponent } from './component/home/home.component';
+import { ProductDetailComponent } from './component/product/product-detail/product-detail.component';
+import { PaymentCartComponent } from './component/payment/payment-cart/payment-cart.component';
+import {FooterComponent} from "./component/footer/footer.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { PaymentCartComponent } from './payment/payment-cart/payment-cart.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
