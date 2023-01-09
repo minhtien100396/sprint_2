@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MyUserDetailServiceImpl implements UserDetailsService {
+
     @Autowired
     private IUserService userService;
 
@@ -21,4 +22,5 @@ public class MyUserDetailServiceImpl implements UserDetailsService {
         }
         return new MyUserDetail(user);
     }
+
 }
