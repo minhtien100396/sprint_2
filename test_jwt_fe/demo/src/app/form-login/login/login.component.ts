@@ -34,31 +34,31 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  login() {
-    this._authService.loginForm(this.rfLogin.value).subscribe(data => {
+    login() {
+      this._authService.loginForm(this.rfLogin.value).subscribe(data => {
 
-      if (data.token != undefined) {
-        console.log(this.rfLogin.value.rememberMe)
-        if (this.rfLogin.value.rememberMe) {
-            this._tokenService.rememberMe(data.token, data.user, data.roles);
-        } else {
-          this._tokenService.setTokenSession(data.token);
-          this._tokenService.setRoleSession(data.roles);
-          this._tokenService.setUserSession(data.user);
+        if (data.token != undefined) {
+          console.log(this.rfLogin.value.rememberMe)
+          if (this.rfLogin.value.rememberMe) {
+              this._tokenService.rememberMe(data.token, data.user, data.roles);
+          } else {
+            this._tokenService.setTokenSession(data.token);
+            this._tokenService.setRoleSession(data.roles);
+            this._tokenService.setUserSession(data.user);
+          }
+          this._router.navigate(['user-account']).then(() => {
+            window.location.reload();
+          });
         }
-        this._router.navigate(['user-account']).then(() => {
-          window.location.reload();
-        });
-      }
-    }, error => {
-      const messageReponse: MessageReponse = error;
-      if (messageReponse.message) {
-        this._toast.error('Không tìm thấy người dùng');
-        this._router.navigateByUrl('/login');
-      }else{
-        this._toast.error('Đăng nhập thất bại');
-        this._router.navigateByUrl('/login');
-      }
-    })
-  }
+      }, error => {
+        const messageReponse: MessageReponse = error;
+        if (messageReponse.message) {
+          this._toast.error('Không tìm thấy người dùng');
+          this._router.navigateByUrl('/login');
+        }else{
+          this._toast.error('Đăng nhập thất bại');
+          this._router.navigateByUrl('/login');
+        }
+      })
+    }
 }

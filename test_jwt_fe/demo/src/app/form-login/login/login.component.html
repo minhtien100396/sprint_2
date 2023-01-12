@@ -20,12 +20,12 @@
 
       <div *ngIf="rfLogin.controls['password'].hasError('required') &&
                 rfLogin.controls['password'].touched" class="col-12">
-        <p style="color: red; margin-left: 15px">Vui lòng nhập mật khẩu</p>
+        <p style="color: red">Vui lòng nhập mật khẩu</p>
       </div>
 
       <div *ngIf="rfLogin.controls['password'].hasError('minlength') &&
                 rfLogin.controls['password'].touched" class="col-12">
-        <p style="color: red; margin-left: 15px">Mật khẩu tối thiểu chứa 5 ký tự</p>
+        <p style="color: red">Mật khẩu tối thiểu chứa 5 ký tự</p>
       </div>
     </div>
     <div class="mb-3 form-check">

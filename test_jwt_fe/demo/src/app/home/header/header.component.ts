@@ -11,15 +11,23 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
   user?: User;
   checkLogin = false;
-  roles?:string[];
+  userRole?: string;
+
   constructor(private _tokenService: TokenService,
               private _router: Router) {
   }
 
   ngOnInit(): void {
-    if (this._tokenService.getTokenLocal()) {
+    if (this._tokenService.isLogged()) {
       this.checkLogin = true;
       this.user = JSON.parse(this._tokenService.getUser());
+      const roles = this._tokenService.getRole();
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i] === "ROLE_ADMIN") {
+          this.userRole = "ROLE_ADMIN";
+          break;
+        }
+      }
     }
   }
 

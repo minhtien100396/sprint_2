@@ -94,4 +94,5 @@ public class Account {
     public void setLockAccount(LockAccount lockAccount) {
         this.lockAccount = lockAccount;
     }
+
 }

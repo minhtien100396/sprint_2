@@ -52,24 +52,56 @@
         </ul>
       </div>
       <div class="navbar align-self-center d-flex">
+        <div class="w-100 d-flex justify-content-end align-items-center">
+          <a *ngIf="!checkLogin" class="nav-icon d-none d-lg-inline text-decoration-none" href="#" data-bs-toggle="modal"
+             data-bs-target="#templatemo_search">
+            <i class="fa fa-user text-dark mr-2"></i>
+            <span class="mx-1">Đăng Kí</span>
+          </a>
 
-        <a class="nav-icon d-none d-lg-inline text-decoration-none" href="#" data-bs-toggle="modal"
-           data-bs-target="#templatemo_search">
-          <i class="fa fa-user text-dark mr-2"></i>
-          <span class="mx-1">Đăng Kí</span>
-        </a>
+          <a *ngIf="!checkLogin" class="nav-icon d-none d-lg-inline text-decoration-none" routerLink="login"
+             data-bs-toggle="modal"
+             data-bs-target="#templatemo_search">
+            <i class="fa fa-sign-in-alt text-dark mr-2"></i>
+            <span class="mx-1">Đăng Nhập</span>
+          </a>
+        </div>
 
-        <a class="nav-icon d-none d-lg-inline text-decoration-none" routerLink="login" data-bs-toggle="modal"
-           data-bs-target="#templatemo_search">
-          <i class="fa fa-sign-in-alt text-dark mr-2"></i>
-          <span class="mx-1">Đăng Nhập</span>
-        </a>
+      </div>
 
-        <a class="nav-icon position-relative text-decoration-none" routerLink="payment-cart">
-          <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-          <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-        </a>
 
+      <div *ngIf="checkLogin" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="w-100 d-flex justify-content-end align-items-center">
+          <a class="nav-icon position-relative text-decoration-none mx-2" routerLink="payment-cart">
+            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+            <span
+              class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+          </a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="margin-right: 0 !important;">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                 aria-expanded="false">
+                <i class="fa fa-user text-dark mr-2"></i>
+                <span class="mx-1">Xin chào {{user.name}}</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Hồ Sơ Cá Nhân</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Lịch Sử Đơn Hàng</a></li>
+                <hr class="dropdown-divider">
+
+                <li>
+                  <a class="dropdown-item" (click)="logout()" style="cursor: pointer">
+                    <i class="fa fa-sign-out-alt text-dark mr-2"></i>
+                    <span class="mx-1">Đăng Xuất</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 

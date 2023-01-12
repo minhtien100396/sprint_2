@@ -15,9 +15,8 @@
             {{user.name}}
           </a>
         </li>
-
         <li class="nav-item">
-          <a *ngIf="checkLogin && r" class="nav-link active" aria-current="page" routerLink="user-account">
+          <a *ngIf="checkLogin && userRole ==='ROLE_ADMIN'" class="nav-link active" aria-current="page" routerLink="user-account">
             Quản Lý Nhân Viên
           </a>
         </li>
