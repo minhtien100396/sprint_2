@@ -18,7 +18,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(
+        prePostEnabled = true, /*Trước khi vào hàm kiểm tra*/
+        securedEnabled = true,
+        jsr250Enabled = true
+)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtEntryPoint jwtEntryPoint;

@@ -2,36 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d45bc2ca-e7e8-48a9-ad9c-033196c3b3d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/dto/payload/reponse/JwtRespone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/dto/payload/reponse/MessageRespone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/dto/payload/request/LoginForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/dto/payload/request/SignUpForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/security/jwt/JwtEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/security/jwt/JwtProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/security/jwt/JwtTokenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/security/user_detail/MyUserDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/security/user_detail/MyUserDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Sport_Shoes/fe/src/app/model/security/JwtResponse.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Sport_Shoes/fe/src/app/model/security/LoginForm.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Sport_Shoes/fe/src/app/model/security/MessageReponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/demo/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/controller/security/SecurityRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/controller/security/SecurityRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/model/account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/model/account/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/repository/account/IAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/repository/account/IAccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/service/account/IAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/service/account/IAccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/service/account/impl/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/service/account/impl/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Sport_Shoes/fe/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Sport_Shoes/fe/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Sport_Shoes/fe/src/app/component/security/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Sport_Shoes/fe/src/app/component/security/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Sport_Shoes/fe/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Sport_Shoes/fe/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_jwt/src/main/java/com/example/demo/security/jwt/JwtEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test_jwt/src/main/java/com/example/demo/security/jwt/JwtEntryPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_jwt_fe/demo/src/app/home/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../test_jwt_fe/demo/src/app/home/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_jwt_fe/demo/src/app/home/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../test_jwt_fe/demo/src/app/home/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/controller/product/ProductRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/controller/product/ProductRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sport_Shoes/fe/src/app/component/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Sport_Shoes/fe/src/app/component/header/header.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +57,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/demo/src/main/java/com/example/demo/dto/payload" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/auction" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -125,7 +99,8 @@
       <updated>1672887220248</updated>
       <workItem from="1672887222160" duration="183000" />
       <workItem from="1673491415818" duration="654000" />
-      <workItem from="1673492117246" duration="8479000" />
+      <workItem from="1673492117246" duration="9061000" />
+      <workItem from="1673573014851" duration="2259000" />
     </task>
     <servers />
   </component>
@@ -153,42 +128,42 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="297" y="285" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.720@0.0.1280.720" timestamp="1673497780199" />
-    <state x="421" y="115" key="FileChooserDialogImpl" timestamp="1673492182359">
+    <state x="421" y="115" key="FileChooserDialogImpl" timestamp="1673577530285">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="421" y="115" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1673492182359" />
-    <state width="1237" height="126" key="GridCell.Tab.0.bottom" timestamp="1673508585633">
+    <state x="421" y="115" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1673577530285" />
+    <state width="1237" height="262" key="GridCell.Tab.0.bottom" timestamp="1673578538364">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="126" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1673508585633" />
-    <state width="1237" height="126" key="GridCell.Tab.0.center" timestamp="1673508585632">
+    <state width="1237" height="262" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1673578538364" />
+    <state width="1237" height="262" key="GridCell.Tab.0.center" timestamp="1673578538364">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="126" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1673508585632" />
-    <state width="1237" height="126" key="GridCell.Tab.0.left" timestamp="1673508585632">
+    <state width="1237" height="262" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1673578538364" />
+    <state width="1237" height="262" key="GridCell.Tab.0.left" timestamp="1673578538364">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="126" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1673508585632" />
-    <state width="1237" height="126" key="GridCell.Tab.0.right" timestamp="1673508585633">
+    <state width="1237" height="262" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1673578538364" />
+    <state width="1237" height="262" key="GridCell.Tab.0.right" timestamp="1673578538364">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="126" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1673508585633" />
-    <state width="1237" height="126" key="GridCell.Tab.1.bottom" timestamp="1673508585633">
+    <state width="1237" height="262" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1673578538364" />
+    <state width="1237" height="262" key="GridCell.Tab.1.bottom" timestamp="1673578538364">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="126" key="GridCell.Tab.1.bottom/0.0.1280.720@0.0.1280.720" timestamp="1673508585633" />
-    <state width="1237" height="126" key="GridCell.Tab.1.center" timestamp="1673508585633">
+    <state width="1237" height="262" key="GridCell.Tab.1.bottom/0.0.1280.720@0.0.1280.720" timestamp="1673578538364" />
+    <state width="1237" height="262" key="GridCell.Tab.1.center" timestamp="1673578538364">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="126" key="GridCell.Tab.1.center/0.0.1280.720@0.0.1280.720" timestamp="1673508585633" />
-    <state width="1237" height="126" key="GridCell.Tab.1.left" timestamp="1673508585633">
+    <state width="1237" height="262" key="GridCell.Tab.1.center/0.0.1280.720@0.0.1280.720" timestamp="1673578538364" />
+    <state width="1237" height="262" key="GridCell.Tab.1.left" timestamp="1673578538364">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="126" key="GridCell.Tab.1.left/0.0.1280.720@0.0.1280.720" timestamp="1673508585633" />
-    <state width="1237" height="126" key="GridCell.Tab.1.right" timestamp="1673508585633">
+    <state width="1237" height="262" key="GridCell.Tab.1.left/0.0.1280.720@0.0.1280.720" timestamp="1673578538364" />
+    <state width="1237" height="262" key="GridCell.Tab.1.right" timestamp="1673578538364">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="126" key="GridCell.Tab.1.right/0.0.1280.720@0.0.1280.720" timestamp="1673508585633" />
+    <state width="1237" height="262" key="GridCell.Tab.1.right/0.0.1280.720@0.0.1280.720" timestamp="1673578538364" />
     <state x="91" y="0" key="new project wizard" timestamp="1672887404093">
       <screen x="0" y="0" width="1280" height="720" />
     </state>

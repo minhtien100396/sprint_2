@@ -37,23 +37,55 @@
          id="templatemo_main_nav">
       <div class="flex-fill">
         <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-          <li class="nav-item">
+          <li class="nav-item d-flex justify-content-center align-items-center">
+            <i class="fa fa-home text-dark mr-0"></i>
             <a class="nav-link" routerLink="">Trang Chủ</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item d-flex justify-content-center align-items-center">
+            <i class="fa fa-paper-plane text-dark mr-0"></i>
+            <a class="nav-link" href="">Hướng Dẫn</a>
+          </li>
+          <li class="nav-item d-flex justify-content-center align-items-center">
+            <i class="fa fa-building text-dark mr-0"></i>
             <a class="nav-link" href="">Giới Thiệu</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Sản Phẩm</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Liên Hệ</a>
-          </li>
+          <ul *ngIf="checkLogin && userRole === 'ROLE_ADMIN'" class="navbar-nav me-auto mb-2 mb-lg-0 "
+              style="margin-right: 0 !important;">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                 aria-expanded="false">
+                <i class="fa fa-user-tie text-dark mr-2"></i>
+                <span class="mx-1">Quản Lý</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <i class="fa fa-user text-dark mr-2"></i>
+                    <span>Quản Lý Người Dùng</span></a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">
+                  <i class="fa fa-shopping-bag text-dark mr-2"></i>
+                  <span>Quản Lý Sản Phẩm</span></a></li>
+                <hr class="dropdown-divider">
+
+                <li>
+                  <a class="dropdown-item" style="cursor: pointer">
+                    <i class="fa fa-money-bill text-dark mr-2"></i>
+                    <span class="mx-1">Quản Lý Giao Dịch</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </ul>
       </div>
       <div class="navbar align-self-center d-flex">
         <div class="w-100 d-flex justify-content-end align-items-center">
-          <a *ngIf="!checkLogin" class="nav-icon d-none d-lg-inline text-decoration-none" href="#" data-bs-toggle="modal"
+          <a *ngIf="!checkLogin" class="nav-icon d-none d-lg-inline text-decoration-none" href="#"
+             data-bs-toggle="modal"
              data-bs-target="#templatemo_search">
             <i class="fa fa-user text-dark mr-2"></i>
             <span class="mx-1">Đăng Kí</span>
@@ -81,16 +113,22 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                  aria-expanded="false">
-                <i class="fa fa-user text-dark mr-2"></i>
                 <span class="mx-1">Xin chào {{user.name}}</span>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Hồ Sơ Cá Nhân</a></li>
                 <li>
+                  <a class="dropdown-item" href="#">
+                    <i class="fa fa-user text-dark mr-2"></i>
+                    <span>Hồ Sơ Cá Nhân</span></a>
+                  <hr class="dropdown-divider">
+
+                </li>
+                <li *ngIf="userRole!='ROLE_ADMIN'">
+                  <a class="dropdown-item" href="#">
+                    <i class="fa fa-history text-dark mr-2"></i>
+                    <span>Lịch Sử Đơn Hàng</span></a>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Lịch Sử Đơn Hàng</a></li>
-                <hr class="dropdown-divider">
 
                 <li>
                   <a class="dropdown-item" (click)="logout()" style="cursor: pointer">
