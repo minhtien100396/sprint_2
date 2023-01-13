@@ -1,6 +1,7 @@
 package com.example.demo.model.product;
 
 import com.example.demo.model.order.Oder;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -14,7 +15,7 @@ public class ProductDetail {
     @Column(columnDefinition = "boolean default false")
     private boolean deleteStatus;
 
-
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;

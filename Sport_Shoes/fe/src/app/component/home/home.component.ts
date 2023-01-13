@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {ProductService} from "../../service/product/product.service";
+import {PageProduct} from "../../dto/product/PageProduct";
 
 @Component({
   selector: 'app-home',
@@ -8,11 +10,14 @@ import {Component, OnInit} from '@angular/core';
 export class HomeComponent implements OnInit {
   brand: boolean = false;
   percent: boolean = false;
+  pageProduct: PageProduct | undefined;
 
-  constructor() {
+  constructor(private _productService: ProductService) {
   }
 
   ngOnInit(): void {
+    this.getPageProduct();
+
   }
 
   checkBrand() {
@@ -22,4 +27,20 @@ export class HomeComponent implements OnInit {
   checkPercent() {
     this.percent = !this.percent;
   }
+
+  getPageProduct() {
+    this._productService.getAllProduct(0).subscribe(data => {
+      this.pageProduct = data;
+    })
+  }
+
+  goToPage(i: number) {
+    this._productService.getAllProduct(i).subscribe(
+      data => {
+        this.pageProduct = data;
+        console.log(data.content)
+      });
+  }
+
+
 }

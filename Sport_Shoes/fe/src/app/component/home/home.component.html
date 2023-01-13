@@ -109,11 +109,11 @@
           </ul>
         </li>
         <li class="pb-3">
-          <a class="d-flex justify-content-between h3 text-decoration-none"(click)="checkPercent()">
+          <a class="d-flex justify-content-between h3 text-decoration-none" (click)="checkPercent()">
             Giảm Giá
             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
           </a>
-          <ul  *ngIf="percent == true" class="pl-3">
+          <ul *ngIf="percent == true" class="pl-3">
             <li><a class="text-decoration-none" href="">5%</a></li>
             <li><a class="text-decoration-none" href="">10%</a></li>
             <li><a class="text-decoration-none" href="">50%</a></li>
@@ -126,7 +126,7 @@
       <div class="row">
         <div class="col-md-12 pb-4 d-flex">
           <input type="text" style="width: 50%" class="form-control mx-3" placeholder="Bạn muốn tìm gì?...">
-          <select  class="form-control me-3" style="width: 30%">
+          <select class="form-control me-3" style="width: 30%">
             <option>Mức Giá</option>
             <option>Nhỏ Hơn 1 Triệu</option>
             <option>Nhỏ Hơn 5 Triệu</option>
@@ -137,11 +137,12 @@
         </div>
 
       </div>
-      <div class="row">
-        <div class="col-md-4">
+
+      <div *ngIf="pageProduct" class="row">
+        <div *ngFor="let item of pageProduct.content; let i = index" class="col-md-4">
           <div class="card mb-4 product-wap rounded-0">
             <div class="card rounded-0">
-              <img class="card-img rounded-0 img-fluid" src="./assets/img/shop_01.jpg" style="height: 300px">
+              <img class="card-img rounded-0 img-fluid" src="{{item?.productDetails[0]?.images[0]?.url}}" style="height: 300px">
               <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                 <ul class="list-unstyled">
                   <li><a class="btn btn-success text-white" href="shop-single.html"><i
@@ -154,7 +155,7 @@
               </div>
             </div>
             <div class="card-body">
-              <a href="shop-single.html" class="h3 text-decoration-none">ADIZERO PRIME X</a>
+              <a href="shop-single.html" class="h3 text-decoration-none">{{item.name|titlecase}}</a>
               <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                 <li class="pt-2 mb-2">
                   <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
@@ -173,337 +174,43 @@
                   <i class="text-muted fa fa-star"></i>
                 </li>
               </ul>
-              <p class="text-center mb-0">2.500.000 VNĐ</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 product-wap rounded-0">
-            <div class="card rounded-0">
-              <img class="card-img rounded-0 img-fluid" src="assets/img/shop_02.jpg" style="height: 300px">
-              <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                <ul class="list-unstyled">
-                  <li><a class="btn btn-success text-white" routerLink="product-detail"><i
-                    class="far fa-heart"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" routerLink="product-detail"><i
-                    class="far fa-eye"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" routerLink="product-detail"><i
-                    class="fas fa-cart-plus"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body">
-              <a href="shop-single.html" class="h3 text-decoration-none">STAN SMITH</a>
-              <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                <li class="pt-2 mb-2">
-                  <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                </li>
-              </ul>
-              <ul class="list-unstyled d-flex justify-content-center mb-1">
-                <li>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                </li>
-              </ul>
-              <p class="text-center mb-0">3.500.000 VNĐ</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 product-wap rounded-0">
-            <div class="card rounded-0">
-              <img class="card-img rounded-0 img-fluid" src="assets/img/shop_03.jpg" style="height: 300px">
-              <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                <ul class="list-unstyled">
-                  <li><a class="btn btn-success text-white" routerLink="product-detail"><i
-                    class="far fa-heart"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" routerLink="product-detail"><i
-                    class="far fa-eye"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" routerLink="product-detail"><i
-                    class="fas fa-cart-plus"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body">
-              <a href="shop-single.html" class="h3 text-decoration-none">SUPERSTAR</a>
-              <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                <li class="pt-2 mb-2">
-                  <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                </li>
-              </ul>
-              <ul class="list-unstyled d-flex justify-content-center mb-1">
-                <li>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                </li>
-              </ul>
-              <p class="text-center mb-0">4.500.000 VNĐ</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 product-wap rounded-0">
-            <div class="card rounded-0">
-              <img class="card-img rounded-0 img-fluid" src="assets/img/shop_04.jpg" style="height: 300px">
-              <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                <ul class="list-unstyled">
-                  <li><a class="btn btn-success text-white" href="shop-single.html"><i
-                    class="far fa-heart"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="far fa-eye"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="fas fa-cart-plus"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body">
-              <a href="shop-single.html" class="h3 text-decoration-none">Nike Air Force 1 '07</a>
-              <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                <li class="pt-2 mb-2">
-                  <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                </li>
-              </ul>
-              <ul class="list-unstyled d-flex justify-content-center mb-1">
-                <li>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                </li>
-              </ul>
-              <p class="text-center mb-0">3.000.000 VNĐ</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 product-wap rounded-0">
-            <div class="card rounded-0">
-              <img class="card-img rounded-0 img-fluid" src="assets/img/shop_05.jpg" style="height: 300px">
-              <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                <ul class="list-unstyled">
-                  <li><a class="btn btn-success text-white" href="shop-single.html"><i
-                    class="far fa-heart"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="far fa-eye"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="fas fa-cart-plus"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body">
-              <a href="shop-single.html" class="h3 text-decoration-none">Nike SB Zoom Blazer Mid</a>
-              <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                <li class="pt-2 mb-2">
-                  <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                </li>
-              </ul>
-              <ul class="list-unstyled d-flex justify-content-center mb-1">
-                <li>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                </li>
-              </ul>
-              <p class="text-center mb-0">2.000.000 VNĐ</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 product-wap rounded-0">
-            <div class="card rounded-0">
-              <img class="card-img rounded-0 img-fluid" src="assets/img/shop_06.jpg" style="height: 300px">
-              <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                <ul class="list-unstyled">
-                  <li><a class="btn btn-success text-white" href="shop-single.html"><i
-                    class="far fa-heart"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="far fa-eye"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="fas fa-cart-plus"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body">
-              <a href="shop-single.html" class="h3 text-decoration-none">Nike Air Max 97 SE</a>
-              <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                <li class="pt-2 mb-2">
-                  <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                </li>
-              </ul>
-              <ul class="list-unstyled d-flex justify-content-center mb-1">
-                <li>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-muted fa fa-star"></i>
-                  <i class="text-muted fa fa-star"></i>
-                </li>
-              </ul>
-              <p class="text-center mb-0">4.500.000 VNĐ</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 product-wap rounded-0">
-            <div class="card rounded-0">
-              <img class="card-img rounded-0 img-fluid" src="assets/img/shop_07.jpg" style="height: 300px">
-              <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                <ul class="list-unstyled">
-                  <li><a class="btn btn-success text-white" href="shop-single.html"><i
-                    class="far fa-heart"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="far fa-eye"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="fas fa-cart-plus"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body">
-              <a href="shop-single.html" class="h3 text-decoration-none">Sneakers</a>
-              <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                <li class="pt-2 mb-2">
-                  <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                </li>
-              </ul>
-              <ul class="list-unstyled d-flex justify-content-center mb-1">
-                <li>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-muted fa fa-star"></i>
-                  <i class="text-muted fa fa-star"></i>
-                </li>
-              </ul>
-              <p class="text-center mb-0">1.000.000 VNĐ</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 product-wap rounded-0">
-            <div class="card rounded-0">
-              <img class="card-img rounded-0 img-fluid" src="assets/img/shop_08.jpg" style="height: 300px">
-              <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                <ul class="list-unstyled">
-                  <li><a class="btn btn-success text-white" href="shop-single.html"><i
-                    class="far fa-heart"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="far fa-eye"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="fas fa-cart-plus"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body">
-              <a href="shop-single.html" class="h3 text-decoration-none">High Tops</a>
-              <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                <li class="pt-2 mb-2">
-                  <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                </li>
-              </ul>
-              <ul class="list-unstyled d-flex justify-content-center mb-1">
-                <li>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-muted fa fa-star"></i>
-                  <i class="text-muted fa fa-star"></i>
-                </li>
-              </ul>
-              <p class="text-center mb-0">1.250.000 VNĐ</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 product-wap rounded-0">
-            <div class="card rounded-0">
-              <img class="card-img rounded-0 img-fluid" src="assets/img/shop_09.jpg" style="height: 300px">
-              <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                <ul class="list-unstyled">
-                  <li><a class="btn btn-success text-white" href="shop-single.html"><i
-                    class="far fa-heart"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="far fa-eye"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                    class="fas fa-cart-plus"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body">
-              <a href="shop-single.html" class="h3 text-decoration-none">Canvas Sneakers</a>
-              <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                <li class="pt-2 mb-2">
-                  <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                  <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                </li>
-              </ul>
-              <ul class="list-unstyled d-flex justify-content-center mb-1">
-                <li>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-warning fa fa-star"></i>
-                  <i class="text-muted fa fa-star"></i>
-                  <i class="text-muted fa fa-star"></i>
-                </li>
-              </ul>
-              <p class="text-center mb-0">550.000 VNĐ</p>
+              <p class="text-center mb-0">{{item.price|currency:'đ '}}</p>
             </div>
           </div>
         </div>
       </div>
-      <div div="row">
-        <ul class="pagination pagination-lg justify-content-end">
-          <li class="page-item disabled">
-            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#"
-               tabindex="-1">1</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-               href="#">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
-          </li>
-        </ul>
+      <div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation example" class="d-flex justify-content-end">
+          <ul class="my__pagination" *ngIf="pageProduct">
+            <li class="my__page-item pointer" [ngClass]="pageProduct.number == 0 ? 'disabled': ''">
+              <span  class="page-link" (click)="goToPage(0)">
+                Trang Đầu
+              </span>
+            </li>
+            <li class="my__page-item pointer" [ngClass]="pageProduct.number == 0 ? 'disabled': ''">
+              <span class="page-link" (click)="goToPage(pageProduct.number - 1)">
+                Trước
+              </span>
+            </li>
+            <li class="my__page-item pointer d-flex justify-content-center align-items-center">
+              <!--                *ngFor="let pageNumber of [].constructor(auctionPageByProductId.totalPages), let i = index">-->
+              <!--                [ngClass]="auctionPageByProductId.number == i ?'actived': ''">-->
+              <span>{{(pageProduct.pageable.pageNumber)+1}}/{{pageProduct.totalPages}}</span>
+              <!--              <span class="my__page-link" (click)="goToPage(i)">{{i + 1}}</span>-->
+            </li>
+            <li class="my__page-item pointer"
+                [ngClass]="pageProduct.number + 1 == pageProduct.totalPages ? 'disabled': ''">
+              <span class="page-link" (click)="goToPage(pageProduct.number + 1)">
+                Sau
+              </span>
+            </li>
+            <li class="my__page-item pointer" [ngClass]="pageProduct.number + 1 == pageProduct.totalPages ? 'disabled': ''">
+              <span class="page-link" (click)="goToPage(pageProduct.totalPages -1)">
+                Trang Cuối
+              </span>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
 
@@ -537,28 +244,28 @@
             <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="multi-item-example"
                  data-bs-ride="carousel">
 
-                <!--First slide-->
-                <div class="carousel-item active">
-                  <div class="row">
-                    <div class="col-3 p-md-5">
-                      <a href="#"><img class="img-fluid brand-img" src="./assets/img/brand_01.png"
-                                       alt="Brand Logo"></a>
-                    </div>
-                    <div class="col-3 p-md-5">
-                      <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png"
-                                       alt="Brand Logo"></a>
-                    </div>
-                    <div class="col-3 p-md-5">
-                      <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png"
-                                       alt="Brand Logo"></a>
-                    </div>
-                    <div class="col-3 p-md-5">
-                      <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png"
-                                       alt="Brand Logo"></a>
-                    </div>
+              <!--First slide-->
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col-3 p-md-5">
+                    <a href="#"><img class="img-fluid brand-img" src="./assets/img/brand_01.png"
+                                     alt="Brand Logo"></a>
+                  </div>
+                  <div class="col-3 p-md-5">
+                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png"
+                                     alt="Brand Logo"></a>
+                  </div>
+                  <div class="col-3 p-md-5">
+                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png"
+                                     alt="Brand Logo"></a>
+                  </div>
+                  <div class="col-3 p-md-5">
+                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png"
+                                     alt="Brand Logo"></a>
                   </div>
                 </div>
-                <!--End First slide-->
+              </div>
+              <!--End First slide-->
 
             </div>
           </div>
