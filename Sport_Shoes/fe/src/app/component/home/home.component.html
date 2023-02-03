@@ -91,63 +91,87 @@
   <div class="row">
 
     <div class="col-lg-3">
-      <h1 class="h2 pb-4">Phân Loại</h1>
-      <ul class="list-unstyled templatemo-accordion">
-        <li class="pb-3">
-          <a class="collapsed d-flex justify-content-between h3 text-decoration-none mb-4" href="#">
-            Tất Cả
-          </a>
-          <a class="d-flex justify-content-between h3 text-decoration-none" (click)="checkBrand()">
-            Thương Hiệu
-            <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
-          </a>
-          <ul *ngIf="brand == true" class="pl-3">
-            <li><a class="text-decoration-none" href="#">Nike</a></li>
-            <li><a class="text-decoration-none" href="#">Adidas</a></li>
-            <li><a class="text-decoration-none" href="#">H<sub>&</sub>M</a></li>
-            <li><a class="text-decoration-none" href="#">Levis</a></li>
-          </ul>
-        </li>
-        <li class="pb-3">
-          <a class="d-flex justify-content-between h3 text-decoration-none" (click)="checkPercent()">
-            Giảm Giá
-            <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
-          </a>
-          <ul *ngIf="percent == true" class="pl-3">
-            <li><a class="text-decoration-none" href="">5%</a></li>
-            <li><a class="text-decoration-none" href="">10%</a></li>
-            <li><a class="text-decoration-none" href="">50%</a></li>
-          </ul>
-        </li>
-      </ul>
+      <form *ngIf="rfSearch" [formGroup]="rfSearch">
+        <h1 class="h2 pb-4">Phân Loại</h1>
+        <ul class="list-unstyled templatemo-accordion">
+          <li class="pb-3">
+            <a class="collapsed d-flex justify-content-between h3 text-decoration-none mb-4" style="cursor:pointer"
+               (click)="getAllProduct()">
+              Tất Cả
+            </a>
+            <a class="d-flex justify-content-between h3 text-decoration-none" (click)="checkBrand()">
+              Thương Hiệu
+              <i class="fa fa-fw fa-chevron-circle-down mt-1" style="cursor:pointer"></i>
+            </a>
+            <ul *ngIf="brand == true" class="pl-3">
+              <li [ngClass]="rfSearch?.value.brandId == '1'?'active-brand':''"><a class="text-decoration-none"
+                                                                                  (click)="getProductByAdidas()"
+                                                                                  style="cursor:pointer">Adidas</a></li>
+              <li [ngClass]="rfSearch?.value.brandId == '2'?'active-brand':''"><a class="text-decoration-none"
+                                                                                  (click)="getProductByNike()"
+                                                                                  style="cursor:pointer">Nike</a></li>
+              <li [ngClass]="rfSearch?.value.brandId == '3'?'active-brand':''"><a class="text-decoration-none"
+                                                                                  (click)="getProductByLevis()"
+                                                                                  style="cursor:pointer">Levis</a></li>
+              <li [ngClass]="rfSearch?.value.brandId == '4'?'active-brand':''"><a class="text-decoration-none"
+                                                                                  (click)="getProductByHAndM()"
+                                                                                  style="cursor:pointer">H<sub>&</sub>M</a>
+              </li>
+            </ul>
+          </li>
+          <li class="pb-3">
+            <a class="d-flex justify-content-between h3 text-decoration-none" (click)="checkPercent()">
+              Giảm Giá
+              <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1" style="cursor:pointer"></i>
+            </a>
+            <ul *ngIf="percent == true" class="pl-3">
+              <li [ngClass]="rfSearch?.value.discountId == '2'?'active-brand':''"><a class="text-decoration-none"
+                                                                                     (click)="getDiscount5()"
+                                                                                     style="cursor:pointer">5%</a></li>
+              <li [ngClass]="rfSearch?.value.discountId == '4'?'active-brand':''"><a class="text-decoration-none"
+                                                                                     (click)="getDiscount10()"
+                                                                                     style="cursor:pointer">10%</a></li>
+              <li [ngClass]="rfSearch?.value.discountId == '5'?'active-brand':''"><a class="text-decoration-none"
+                                                                                     (click)="getDiscount50()"
+                                                                                     style="cursor:pointer">50%</a></li>
+            </ul>
+          </li>
+        </ul>
+      </form>
+
     </div>
 
     <div class="col-lg-9">
       <div class="row">
-        <div class="col-md-12 pb-4 d-flex">
-          <input type="text" style="width: 50%" class="form-control mx-3" placeholder="Bạn muốn tìm gì?...">
-          <select class="form-control me-3" style="width: 30%">
-            <option>Mức Giá</option>
-            <option>Nhỏ Hơn 1 Triệu</option>
-            <option>Nhỏ Hơn 5 Triệu</option>
-            <option>Tất Cả</option>
-          </select>
-
-          <button type="submit" class="btn btn-outline-success" style="font-weight: bold">Tìm Kiếm</button>
-        </div>
-
+        <form *ngIf="rfSearch" [formGroup]="rfSearch" (ngSubmit)="getPageProduct()">
+          <div class="col-md-12 pb-4 d-flex">
+            <input formControlName="name" type="text" style="width: 50%" class="form-control mx-3"
+                   placeholder="Bạn muốn tìm gì?...">
+            <select formControlName="rangePrice" class="form-control me-3" style="width: 30%"
+                    (change)="getPageProduct()">
+              <option value="99999999999999999999999">Mức Giá</option>
+              <option value="1000000">Nhỏ Hơn 1 Triệu</option>
+              <option value="2000000">Nhỏ Hơn 2 Triệu</option>
+              <option value="3000000">Nhỏ Hơn 3 Triệu</option>
+              <option value="4000000">Nhỏ Hơn 4 Triệu</option>
+              <option value="5000000">Nhỏ Hơn 5 Triệu</option>
+              <option value="9999999999">Tất Cả</option>
+            </select>
+            <button type="submit" class="btn btn-outline-success" style="font-weight: bold">Tìm Kiếm</button>
+          </div>
+        </form>
       </div>
 
       <div *ngIf="pageProduct" class="row">
         <div *ngFor="let item of pageProduct.content; let i = index" class="col-md-4">
           <div class="card mb-4 product-wap rounded-0">
             <div class="card rounded-0">
-              <img class="card-img rounded-0 img-fluid" src="{{item?.productDetails[0]?.images[0]?.url}}" style="height: 300px">
+              <img class="card-img rounded-0 img-fluid" src="{{item?.url}}" style="height: 300px">
               <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                 <ul class="list-unstyled">
                   <li><a class="btn btn-success text-white" href="shop-single.html"><i
                     class="far fa-heart"></i></a></li>
-                  <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                  <li><a class="btn btn-success text-white mt-2" [routerLink]="[item?.id]"><i
                     class="far fa-eye"></i></a></li>
                   <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
                     class="fas fa-cart-plus"></i></a></li>
@@ -174,7 +198,11 @@
                   <i class="text-muted fa fa-star"></i>
                 </li>
               </ul>
-              <p class="text-center mb-0">{{item.price|currency:'đ '}}</p>
+              <p *ngIf="item.disCount.percent == 0" class="text-center mb-0">{{item.price|currency}}</p>
+              <p *ngIf="item.disCount.percent != 0" class="text-left mb-0 d-flex">
+                <span style="font-size: 14px;color: gray;text-decoration-line:line-through">{{item.price|currency}}</span>
+                <span style="margin-left: 5px;color: red">{{item.currentPrice|currency}}</span>
+              </p>
             </div>
           </div>
         </div>
@@ -183,7 +211,7 @@
         <nav aria-label="Page navigation example" class="d-flex justify-content-end">
           <ul class="my__pagination" *ngIf="pageProduct">
             <li class="my__page-item pointer" [ngClass]="pageProduct.number == 0 ? 'disabled': ''">
-              <span  class="page-link" (click)="goToPage(0)">
+              <span class="page-link" (click)="goToPage(0)">
                 Trang Đầu
               </span>
             </li>
@@ -195,7 +223,7 @@
             <li class="my__page-item pointer d-flex justify-content-center align-items-center">
               <!--                *ngFor="let pageNumber of [].constructor(auctionPageByProductId.totalPages), let i = index">-->
               <!--                [ngClass]="auctionPageByProductId.number == i ?'actived': ''">-->
-              <span>{{(pageProduct.pageable.pageNumber)+1}}/{{pageProduct.totalPages}}</span>
+              <span>{{(pageProduct.pageable.pageNumber) + 1}}/{{pageProduct.totalPages}}</span>
               <!--              <span class="my__page-link" (click)="goToPage(i)">{{i + 1}}</span>-->
             </li>
             <li class="my__page-item pointer"
@@ -204,7 +232,8 @@
                 Sau
               </span>
             </li>
-            <li class="my__page-item pointer" [ngClass]="pageProduct.number + 1 == pageProduct.totalPages ? 'disabled': ''">
+            <li class="my__page-item pointer"
+                [ngClass]="pageProduct.number + 1 == pageProduct.totalPages ? 'disabled': ''">
               <span class="page-link" (click)="goToPage(pageProduct.totalPages -1)">
                 Trang Cuối
               </span>

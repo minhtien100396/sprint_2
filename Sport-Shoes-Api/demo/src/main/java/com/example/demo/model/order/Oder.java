@@ -3,6 +3,7 @@ package com.example.demo.model.order;
 import com.example.demo.model.payment.Payment;
 import com.example.demo.model.product.ProductDetail;
 import com.example.demo.model.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
@@ -13,8 +14,12 @@ public class Oder {
     private int id;
     @Column(columnDefinition = "date")
     private String orderTime;
+    private Integer quantity;
     @Column(columnDefinition = "boolean default false")
     private boolean deleteStatus;
+    @Column(columnDefinition = "boolean default true")
+    private boolean paymentStatus;
+
 
     @ManyToOne
     @JoinColumn(name = "product_detail_id", referencedColumnName = "id")
@@ -36,6 +41,14 @@ public class Oder {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public String getOrderTime() {
@@ -76,5 +89,13 @@ public class Oder {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public boolean isPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(boolean paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
 }

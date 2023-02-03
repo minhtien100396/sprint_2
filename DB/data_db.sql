@@ -1,5 +1,5 @@
-use product_sprint2;
 
+use product_sprint2;
 -- Category
 INSERT INTO `product_sprint2`.`category` (`id`, `delete_status`, `name`) VALUES ('1', '0', 'Nam');
 INSERT INTO `product_sprint2`.`category` (`id`, `delete_status`, `name`) VALUES ('2', '0', 'Nữ');
@@ -231,6 +231,69 @@ INSERT INTO `product_sprint2`.`account_role` (`id`, `delete_status`, `account_id
 INSERT INTO `product_sprint2`.`account_role` (`id`, `delete_status`, `account_id`, `role_id`) VALUES ('3', '0', '3', '2');
 INSERT INTO `product_sprint2`.`account_role` (`id`, `delete_status`, `account_id`, `role_id`) VALUES ('4', '0', '4', '2');
 INSERT INTO `product_sprint2`.`account_role` (`id`, `delete_status`, `account_id`, `role_id`) VALUES ('5', '0', '5', '2');
+
+
+-- List Product
+set global sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+set session sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+drop view list_product;
+create view list_product 
+as
+select p.id, p.name,p.price,i.url,p.delete_status
+from product p 
+join product_detail pd on pd.product_id = p.id
+join image i on i.product_detail_id = pd.id;
+ 
+ select * from list_product 
+ where delete_status = 0
+ group by `name`;
+ 
+ 
+select p.`name`, p.price, i.url, p.brand_id
+from product p 
+join product_detail pd on pd.product_id = p.id
+join image i on i.product_detail_id = pd.id
+where p.delete_status = 0 
+and p.`name`like '%%'
+and p.price <= 3500000
+and p.brand_id like '%1%'
+and p.discount_id like '%%'
+group by p.`name`
+order by p.date_submitted desc;
+
+select * 
+from product p 
+join product_detail pd on pd.product_id = p.id
+where p.delete_status = 0 
+order by p.date_submitted desc;
+
+ -- Trigger
+ drop trigger update_current_price;
+ 
+ delimiter //
+ create trigger update_current_price
+ before update
+ on discount for each row
+ begin
+if new.percent <> old.percent then
+ update product p set p.current_price = p.price *(100-new.percent)/100
+ where p.discount_id = new.id;
+end if;
+end;
+ // delimiter ;
+ 
+ SET SQL_SAFE_UPDATES = 0;
+
+
+
+
+ 
+
+
+ 
+
+
 
 
 

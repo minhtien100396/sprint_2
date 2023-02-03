@@ -1,7 +1,7 @@
-import {Product} from "../../model/product/product";
+import { ProductListDto} from "./ProductListDto";
 
 export interface PageProduct {
-  content: Product[];
+  content: ProductListDto[];
   pageable: {
     sort: {
       empty: boolean,

@@ -1,5 +1,7 @@
 package com.example.demo.model.product;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ public class Product {
     @Column(name = "description", columnDefinition = "text")
     private String description;
     private Double price;
+    private Double currentPrice;
     @Column(columnDefinition = "date")
     private String dateSubmitted;
     @Column(columnDefinition = "boolean default false")
@@ -25,10 +28,11 @@ public class Product {
     @JoinColumn(name = "brand_id", referencedColumnName = "id")
     private Brand brand;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "product")
     private Set<ProductDetail> productDetails;
 
-    public Product() {
+    public Product( ) {
     }
 
     public int getId() {
@@ -61,6 +65,14 @@ public class Product {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Double getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public void setCurrentPrice(Double currentPrice) {
+        this.currentPrice = currentPrice;
     }
 
     public String getDateSubmitted() {

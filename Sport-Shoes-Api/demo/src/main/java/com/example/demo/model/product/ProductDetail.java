@@ -15,7 +15,6 @@ public class ProductDetail {
     @Column(columnDefinition = "boolean default false")
     private boolean deleteStatus;
 
-    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
@@ -35,11 +34,17 @@ public class ProductDetail {
     @OneToMany(mappedBy = "productDetail")
     private Set<Image> images;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "productDetail")
     private Set<Oder> oders;
 
     public ProductDetail() {
     }
+
+    public ProductDetail(int id) {
+        this.id = id;
+    }
+
 
     public int getId() {
         return id;

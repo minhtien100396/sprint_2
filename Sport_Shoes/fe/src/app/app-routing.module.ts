@@ -9,8 +9,8 @@ import {PaymentCartComponent} from "./component/payment/payment-cart/payment-car
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path:'',component:HomeComponent},
-  {path:'product-detail',component:ProductDetailComponent},
-  {path:'payment-cart',component:PaymentCartComponent}
+  {path:':productId',component:ProductDetailComponent},
+  {path:'payment-cart/:userId',component:PaymentCartComponent}
 ];
 
 @NgModule({

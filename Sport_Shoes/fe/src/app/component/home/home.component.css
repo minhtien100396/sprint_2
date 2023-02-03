@@ -71,3 +71,10 @@
   border-radius: 4px;
 }
 
+.active-brand {
+  background-color: #59ab6e;
+  color: whitesmoke;
+  width: 80%;
+}
+
+

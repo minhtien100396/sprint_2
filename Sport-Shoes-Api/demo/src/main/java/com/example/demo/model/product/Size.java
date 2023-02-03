@@ -19,7 +19,7 @@ public class Size {
     @OneToMany(mappedBy = "size")
     private Set<ProductDetail> productDetails;
 
-    public Size() {
+    public Size( ) {
     }
 
     public int getId() {

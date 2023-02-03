@@ -11,7 +11,6 @@ import {JwtResponse} from '../../model/security/JwtResponse';
 export class AuthService {
   private API_LOGIN = environment.API_LOCAL + 'auth/login';
 
-  // tslint:disable-next-line:variable-name
   constructor(private _httpClient: HttpClient) {
   }
 

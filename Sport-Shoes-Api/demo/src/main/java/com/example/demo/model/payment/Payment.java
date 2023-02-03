@@ -14,14 +14,12 @@ public class Payment {
     private String shippingDescription;
     @Column(columnDefinition = "boolean default false")
     private boolean deleteStatus;
-    @Column(columnDefinition = "boolean default false")
-    private boolean paymentStatus;
     @Column(columnDefinition = "date")
     private String paymentTime;
 
     @JsonBackReference
     @OneToOne
-    @JoinColumn(name = "oder_id",referencedColumnName = "id")
+    @JoinColumn(name = "oder_id", referencedColumnName = "id")
     private Oder oder;
 
     public Payment() {
@@ -51,13 +49,6 @@ public class Payment {
         this.deleteStatus = deleteStatus;
     }
 
-    public boolean isPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(boolean paymentStatus) {
-        this.paymentStatus = paymentStatus;
-    }
 
     public String getPaymentTime() {
         return paymentTime;

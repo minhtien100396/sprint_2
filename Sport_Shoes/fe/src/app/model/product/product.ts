@@ -12,5 +12,5 @@ export interface Product {
   disCount?: Discount;
   brand?: Brand;
   productDetails?: ProductDetail[];
-
+  currentPrice?:number;
 }
